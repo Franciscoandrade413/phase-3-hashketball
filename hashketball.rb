@@ -1,4 +1,6 @@
 # Write your code below game_hash
+require pry
+
 def game_hash
   {
     home: {
@@ -127,3 +129,17 @@ def game_hash
 end
 
 # Write code here
+def all_players
+  game_hash[:home][:players] + game_hash[:away][:players]
+end
+
+def all_team_info(team_name)
+  team_info = game_hash.find do |color, team_data|
+    team_data[:team_name] == team_name
+  end
+end
+
+def team_colors(team_name)
+  team = find_team(team_name)
+  team[:colors]
+end
